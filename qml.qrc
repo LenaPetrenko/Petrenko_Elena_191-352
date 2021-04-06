@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>image/cam.png</file>
+        <file>image/imgonline-com-ua-Resize-xQETFjaEy3.png</file>
+        <file>image/Nature - 38678.mp4</file>
+        <file>image/new_pause.png</file>
+        <file>image/new_play.png</file>
+        <file>image/new_stop.png</file>
+        <file>image/pause.png</file>
+        <file>image/play.png</file>
+        <file>image/stop.png</file>
+        <file>image/v_cam.png</file>
+        <file>Page1GUI.qml</file>
+        <file>Page2GUI.qml</file>
+        <file>image/Storm - 40581.mp4</file>
+        <file>Page3GUI.qml</file>
+    </qresource>
+</RCC>
