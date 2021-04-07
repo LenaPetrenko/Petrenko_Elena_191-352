@@ -1,4 +1,50 @@
 #include <QGuiApplication>
+#include <QNetworkReply>
+#include <QQmlContext>
+#include <QQmlApplicationEngine>
+#include "WebAppController.h"
+
+int main(int argc, char *argv[])
+{
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
+
+    QGuiApplication app(argc, argv);
+
+    WebAppController webappcontroller;
+      QQmlApplicationEngine engine;
+      const QUrl url(QStringLiteral("qrc:/main.qml"));
+
+       QQmlContext *context = engine.rootContext();//Контексты позволяют предоставлять данные компонентам QML, созданным механизмом QML
+      context->setContextProperty("httpController", &webappcontroller);
+
+
+   engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+   if (engine.rootObjects().isEmpty())
+       return -1;
+
+
+
+   QObject::connect(engine.rootObjects().first(), SIGNAL(failed(QString)),
+   &webappcontroller, SLOT(failed(QString)));
+
+
+   QObject::connect(engine.rootObjects().first(), SIGNAL(cancel(QString)),
+   &webappcontroller, SLOT(cancel(QString)));
+
+
+
+   QObject* main = engine.rootObjects()[0];
+    WebAppController sendtoqml(main);
+   engine.rootContext()->setContextProperty("_send", &sendtoqml);
+
+    return app.exec();
+}
+
+
+
+/*#include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QDebug>
 
@@ -28,7 +74,7 @@ int main(int argc, char *argv[])
     return app.exec();                                                          // начало работы приложения, т.е. передача управления
                                                                                 // от точки входа коду самого приложения (cpp и qml)
 }
-
+*/
 /* строение проекта Qt QML:
 *.pro - файл настроект системы сборки qmake,
 *   - все файлы из дерева проекта

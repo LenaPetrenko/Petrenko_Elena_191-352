@@ -4,7 +4,6 @@
         <file>qtquickcontrols2.conf</file>
         <file>image/cam.png</file>
         <file>image/imgonline-com-ua-Resize-xQETFjaEy3.png</file>
-        <file>image/Nature - 38678.mp4</file>
         <file>image/new_pause.png</file>
         <file>image/new_play.png</file>
         <file>image/new_stop.png</file>
@@ -16,5 +15,6 @@
         <file>Page2GUI.qml</file>
         <file>image/Storm - 40581.mp4</file>
         <file>Page3GUI.qml</file>
+        <file>image/new_fon1.jpg</file>
     </qresource>
 </RCC>
